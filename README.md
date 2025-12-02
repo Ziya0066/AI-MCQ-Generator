@@ -10,7 +10,7 @@ This is an AI-powered tool that automatically generates Multiple Choice Question
 ## 🛠️ Tech Stack
 - **Frontend:** HTML, CSS, JavaScript
 - **Backend:** Node.js, Express
-- **AI:** [Mention the AI API you used, e.g., OpenAI/Gemini]
+- **AI:** Gemini 
 
 ## 📦 How to Run
 1. Clone the repository.
