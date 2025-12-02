@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI MCQ Generator</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- HEADER (shared for both pages) -->
+    <div style="text-align:center; margin-bottom: 16px;">
+      <h1>AI MCQ Generator</h1>
+      <p style="margin:6px 0 0; color:#a8c3d9; font-size:0.95rem;">
+        Generate custom practice questions for any subject & topic.
+      </p>
+    </div>
+
+    <!-- ================= PAGE 1: INPUT FORM ================= -->
+    <div id="inputPage">
+
+      <div class="input-box" id="mcq-form">
+        <label>Subject:</label>
+        <input type="text" id="subjectInput" placeholder="e.g. Chemistry, DBMS, Maths">
+
+        <label>Topic:</label>
+        <input type="text" id="topicInput" placeholder="e.g. Chemical Reactions, Normalization, Integration">
+
+        <label>Number of Questions:</label>
+        <input type="number" id="numQuestions" min="1" max="20" value="5">
+
+        <label>Difficulty:</label>
+        <select id="difficulty">
+          <option value="Easy">Easy</option>
+          <option value="Medium" selected>Medium</option>
+          <option value="Hard">Hard</option>
+        </select>
+
+        <button class="primary-btn" id="genBtn" onclick="generateMCQs()">
+        GENERATE MCQs
+        </button>
+      </div>
+
+    </div>
+
+    <!-- ================= PAGE 2: MCQ RESULT ================= -->
+    <div id="outputPage" style="display:none;">
+
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-top:16px;">
+        <h2 style="margin:0;">Your Practice Set</h2>
+        <button class="primary-btn" style="grid-column:auto; padding:8px 14px; font-size:0.85rem;"
+                onclick="goToInputPage()">
+          ← Back to Setup
+        </button>
+      </div>
+
+      <div id="mcq-section" style="margin-top:10px;">
+        <div id="mcq-container"></div>
+
+        <button class="primary-btn" style="margin-top:18px;" onclick="checkAnswers()">
+          Check Answers ✅
+        </button>
+
+        <button class="primary-btn" style="margin-top:10px; background:linear-gradient(135deg,#9ae7ff,#c8d9ff); color:#00141f;"
+                onclick="goToInputPage(true)">
+          New Practice Set 🔁
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
