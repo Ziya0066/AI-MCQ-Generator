@@ -1,4 +1,4 @@
-// server.js
+
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
@@ -8,11 +8,10 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-// --- GEMINI SETUP ---
+
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
-// Helper: safely extract JSON from model response
 function extractJSON(text) {
   try {
     return JSON.parse(text);
@@ -77,7 +76,7 @@ Do NOT include any markdown, backticks, or extra commentary.
     const raw = result.response.text();
     const json = extractJSON(raw);
 
-    // basic sanity check
+  
     if (!json.mcqs || !Array.isArray(json.mcqs)) {
       throw new Error("Invalid MCQ structure from AI");
     }
